@@ -1,4 +1,5 @@
 import {
+	Badge,
 	Card,
 	Table,
 	TableBody,
@@ -6,6 +7,7 @@ import {
 	TableHead,
 	TableHeaderCell,
 	TableRow,
+	Title,
 } from "@tremor/react";
 
 const users: {
@@ -31,6 +33,10 @@ const users: {
 export const ListOfUsers = () => {
 	return (
 		<Card>
+			<Title>
+				Users
+				<Badge style={{ marginLeft: "8px" }}>{users.length}</Badge>
+			</Title>
 			<Table>
 				<TableHead>
 					<TableRow>
