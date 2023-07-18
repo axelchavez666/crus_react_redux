@@ -3,6 +3,7 @@ import { useUserActions } from "../hooks/useUsersActions";
 
 export function CreateNewUser() {
 	const { addUser } = useUserActions();
+
 	const handleSubmit = (event: React.FormEvent<HTMLFormEvent>) => {
 		event.preventDefault;
 		const form = event.target;
@@ -13,6 +14,7 @@ export function CreateNewUser() {
 		const github = formData.get("github") as string;
 
 		addUser({ name, email, github });
+		form.reset();
 	};
 
 	return (
