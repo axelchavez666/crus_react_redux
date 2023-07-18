@@ -1,4 +1,5 @@
 import {
+	Badge,
 	Card,
 	Table,
 	TableBody,
@@ -6,31 +7,21 @@ import {
 	TableHead,
 	TableHeaderCell,
 	TableRow,
+	Title,
 } from "@tremor/react";
-
-const users: {
-	id: string;
-	name: string;
-	email: string;
-	github: string;
-}[] = [
-	{
-		id: "1",
-		name: "Peter Doe",
-		email: "test",
-		github: "test",
-	},
-	{
-		id: "2",
-		name: "Axel Chavez",
-		email: "test axel",
-		github: "test axel",
-	},
-];
+import { useAppSelector } from "../hooks/store";
+import { useUserActions } from "../hooks/useUsersActions";
 
 export const ListOfUsers = () => {
+	const users = useAppSelector((state) => state.users);
+	const { removeUser } = useUserActions();
+
 	return (
 		<Card>
+			<Title>
+				Users
+				<Badge style={{ marginLeft: "8px" }}>{users.length}</Badge>
+			</Title>
 			<Table>
 				<TableHead>
 					<TableRow>
@@ -64,6 +55,7 @@ export const ListOfUsers = () => {
 							<TableCell>
 								<button type="button">
 									<svg
+										aria-label="Edit element"
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
 										viewBox="0 0 24 24"
@@ -79,8 +71,9 @@ export const ListOfUsers = () => {
 										/>
 									</svg>
 								</button>
-								<button type="button">
+								<button onClick={() => removeUser(item.id)} type="button">
 									<svg
+										aria-label="Remove element"
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
 										viewBox="0 0 24 24"
