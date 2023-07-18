@@ -1,4 +1,4 @@
-# crds_react_redux
+# crud_react_redux
 CRUD with React Redux Toolkit + Rome Tools and Tremor
 
 
