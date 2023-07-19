@@ -17,3 +17,5 @@ icons library
 https://heroicons.com/
 
 screaming architecture
+
+TODO sync data when create a new user, right now is only for delete
