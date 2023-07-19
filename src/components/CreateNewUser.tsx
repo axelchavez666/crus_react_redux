@@ -4,9 +4,9 @@ import { useUserActions } from "../hooks/useUsersActions";
 export function CreateNewUser() {
 	const { addUser } = useUserActions();
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormEvent>) => {
-		event.preventDefault;
-		const form = event.target;
+	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const form = event.currentTarget;
 		const formData = new FormData(form);
 
 		const name = formData.get("name") as string;
